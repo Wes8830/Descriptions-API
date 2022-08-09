@@ -9,8 +9,11 @@ class Columns(models.Model):
     description = models.CharField(max_length=2048)
     # needs to link to Categories
     parentDir = models.CharField(max_length=64) 
+    owner = models.ForeignKey('auth.User', related_name='columns', on_delete=models.SET("NLWF"))
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+
 
 
 class Categories(models.Model):
